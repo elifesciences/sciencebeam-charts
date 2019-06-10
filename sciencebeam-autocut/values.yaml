@@ -12,6 +12,7 @@ image:
 autocut:
   modelPath: ""
   workers: 1
+  testPath: /api/autocut?value=test
 
 nameOverride: ""
 fullnameOverride: ""

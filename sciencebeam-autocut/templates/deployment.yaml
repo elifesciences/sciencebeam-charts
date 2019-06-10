@@ -35,12 +35,12 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /api/autocut?value=test
+              path: {{ .Values.autocut.testPath }}
               port: http
             failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
           readinessProbe:
             httpGet:
-              path: /api/autocut?value=test
+              path: {{ .Values.autocut.testPath }}
               port: http
             failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
           resources:
