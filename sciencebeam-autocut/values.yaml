@@ -6,11 +6,12 @@ replicaCount: 1
 
 image:
   repository: elifesciences/sciencebeam-gym_unstable
-  tag: 22fe6d104ffff6fb13c1853d3fc85f77f31c38c8
+  tag: db96e9e683e4e447b71bcd6e8a273d5ae2c4e752
   pullPolicy: IfNotPresent
 
 autocut:
   modelPath: ""
+  workers: 1
 
 nameOverride: ""
 fullnameOverride: ""

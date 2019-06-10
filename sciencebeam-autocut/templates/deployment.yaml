@@ -23,17 +23,15 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: ['/bin/sh']
-          args: ['-c', 'gunicorn \
-            "sciencebeam_gym.models.text.crf.autocut_app:create_app('')" \
-            --timeout 10 --workers 10 --worker-class gevent \
-            --bind 0.0.0.0:8079']
+          command: ['start-autocut.sh']
           env:
           - name: AUTOCUT_MODEL_PATH
             value: "{{ .Values.autocut.modelPath }}"
+          - name: GUNICORN_WORKERS
+            value: "{{ .Values.autocut.workers }}"
           ports:
             - name: http
-              containerPort: 8079
+              containerPort: 8080
               protocol: TCP
           livenessProbe:
             httpGet:
