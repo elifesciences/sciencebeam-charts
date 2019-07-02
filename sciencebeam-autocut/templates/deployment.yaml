@@ -25,12 +25,12 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: ['start-autocut.sh']
           env:
-          {{- if .Values.autocut.modelPath }}
-          - name: AUTOCUT_MODEL_PATH
-            value: "{{ .Values.autocut.modelPath }}"
-          {{- end }}
           - name: GUNICORN_WORKERS
             value: "{{ .Values.autocut.workers }}"
+          {{ if .Values.autocut.modelPath }}
+          - name: AUTOCUT_MODEL_PATH
+            value: "{{ .Values.autocut.modelPath }}"
+          {{ end }}
           ports:
             - name: http
               containerPort: 8080
