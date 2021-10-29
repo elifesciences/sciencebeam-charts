@@ -64,7 +64,7 @@ spec:
                   - '/bin/sh'
                   - '-c'
                   - 'curl -v --form input=@sample.pdf --form consolidateHeader=0 --form consolidateCitations=0 -o /dev/null http://localhost:8070/api/processFulltextDocument'
-            periodSeconds: 60
+            periodSeconds: {{ .Values.warmup.periodSeconds }}
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
