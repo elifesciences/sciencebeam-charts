@@ -54,7 +54,8 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
         {{- if .Values.warmup.enabled }}
         - name: warmup
-          image: pstauffer/curl
+          image: "{{ .Values.warmup.image.repository }}:{{ .Values.warmup.image.tag }}"
+          imagePullPolicy: {{ .Values.warmup.image.pullPolicy }}
           command: ['/bin/sh']
           args: ['-c', 'curl https://upload.wikimedia.org/wikipedia/commons/5/5b/I-20_Sample.pdf -o sample.pdf && sleep 168h']
           readinessProbe:

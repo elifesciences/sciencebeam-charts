@@ -55,6 +55,10 @@ autoscaling:
 
 warmup:
   enabled: false
+  image:
+    repository: pstauffer/curl
+    tag: latest
+    pullPolicy: IfNotPresent
 
 nodeSelector: {}
 
