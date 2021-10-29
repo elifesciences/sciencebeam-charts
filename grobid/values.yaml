@@ -55,6 +55,9 @@ autoscaling:
 
 warmup:
   enabled: false
+  # the url to the sample document (submitted to the service)
+  documentUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5b/I-20_Sample.pdf"
+  # the warmup image, must have curl installed
   image:
     repository: pstauffer/curl
     tag: latest
